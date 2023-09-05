@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Farmer>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Farmers</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Farmer" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"> &nbsp; </i> Add New Farmer
+            </a>
+            @*<a asp-controller="Farmer" asp-action="Create" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"> &nbsp; </i> Add A Product
+            </a>*@
+        </div>
+        
+    </div>
+
+
+
+<table class ="table table-bordered table-stripped" style=" width:100%">
+    <thead>
+        <tr>
+            <th>
+                Farmer Name
+            </th>
+            <th>
+                Farmer Surname
+            </th>
+            <th>
+                Farmer Email
+            </th>
+            <th>
+                Farm Name
+            </th>
+            <th>
+                 Products
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+           <tr>
+               <td width="25%">
+                   @obj.Name
+               </td>
+                <td width="25%">
+                    @obj.Surname
+                </td>
+                <td width="25%">
+                    @obj.Email
+                </td>
+                <td width="25%">
+                    @obj.FarmName
+                </td>
+                <td width="50%">
+                    @obj.Products
+                </td>
+                    
+                </tr> 
+        }
+    </tbody>
+</table>
+</div>
